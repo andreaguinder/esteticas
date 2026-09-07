@@ -63,15 +63,11 @@ padding: 64px 0px;
         gap: 40px;
     }
 
-    /* Ancho 50/50 para texto e imagen */
     .container-inicio .container-left > *,
     .container-inicio .container-right > * {
         flex: 1;
     }
 
-    /* En desktop reseteamos el order para que respete el orden del HTML */
-    /* container-left:  Texto (izq) | Imagen (der) */
-    /* container-right: Imagen (izq) | Texto (der) */
     .container-right .texto,
     .container-right .image {
         order: unset;

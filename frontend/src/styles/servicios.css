@@ -11,7 +11,7 @@ padding: 48px 0px 24px;
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 16px;
-    margin: auto;
+    margin: 0 auto 60px;
 }
 
 .card-servicio {

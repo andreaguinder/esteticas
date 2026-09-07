@@ -3,12 +3,12 @@ var router = express.Router();
 var serviciosModel = require("./../../models/serviciosModel");
 var cloudinary = require("cloudinary").v2;
 
-/* Vista principal de servicios */
+
 router.get('/', async function(req, res, next) {
   var servicios = await serviciosModel.getServicios();
   
   servicios = servicios.map(servicio => {
-    // Leemos 'imagen_id' directamente desde MySQL
+
     if (servicio.imagen_id) {
       const imagen = cloudinary.url(servicio.imagen_id, {
         width: 100,
@@ -28,7 +28,7 @@ router.get('/', async function(req, res, next) {
   });
 });
 
-/* Vista del formulario agregar */
+
 router.get("/agregar", (req, res, next) => {
   res.render("admin/agregar", {
     layout: "admin/layout"
@@ -41,30 +41,30 @@ router.get("/eliminar/:id", async (req, res, next) => {
   res.redirect("/admin/servicios");
 });
 
-/* POST para guardar el servicio */
+
 router.post('/agregar', async (req, res, next) => {
   try {
     var imagen_id = "";
 
-    // 1. Procesamos la imagen si se subió algún archivo
+
     if (req.files && Object.keys(req.files).length > 0) {
       let imagen = req.files.imagen;
       let result = await cloudinary.uploader.upload(imagen.tempFilePath);
       imagen_id = result.public_id;
     }
 
-    // 2. Validamos los campos requeridos
+
     if (
       req.body.nombre != "" && 
       req.body.duracion != "" && 
       req.body.descripcion != ""
     ) {
-      // 3. Insertamos explícitamente enviando la propiedad 'imagen_id'
+
       await serviciosModel.insertServicio({
         nombre: req.body.nombre,
         duracion: req.body.duracion,
         descripcion: req.body.descripcion,
-        imagen_id: imagen_id // Coincide exactamente con la columna de MySQL
+        imagen_id: imagen_id 
       });
 
       res.redirect('/admin/servicios');

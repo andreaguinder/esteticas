@@ -1,0 +1,144 @@
+
+.contacto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #222222;
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .contacto-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+
+.contacto-section {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contacto-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #008b91;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #00c4cc;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formulario p {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+.formulario label {
+  font-size: 0.9rem;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  color: #111827;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #00c4cc;
+  box-shadow: 0 0 0 3px rgba(0, 196, 204, 0.15);
+}
+
+.formulario textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+
+.centrar {
+  margin-top: 8px;
+}
+
+.btn-whatsapp {
+  width: 100%;
+  padding: 14px;
+  background-color: #25d366;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20ba5a;
+  transform: translateY(-1px);
+}
+
+.contacto-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #00c4cc;
+}
+
+.contacto-info-text {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contacto-whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.contacto-whatsapp-link:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}

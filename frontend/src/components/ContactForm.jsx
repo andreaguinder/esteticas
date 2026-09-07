@@ -4,6 +4,20 @@ export default function ContactForm() {
 
     const handleEnviarForm = (e) => {
         e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const nombre = formData.get("nombre");
+        const email = formData.get("email");
+        const telefono = formData.get("telefono");
+        const comentario = formData.get("comentario");
+        const numeroWhatsApp = "5492284228173"; 
+
+
+        const mensaje = `Hola! Quiero pedir un turno.%0A%0A*Nombre:* ${nombre}%0A*Email:* ${email}%0A*Teléfono:* ${telefono}%0A*Comentario:* ${comentario}`;
+
+
+        window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, "_blank");
+
         e.target.reset();
     };
 
@@ -30,11 +44,13 @@ export default function ContactForm() {
 
                 <p>
                     <label>Comentario</label>
-                    <textarea name="comentario"></textarea>
+                    <textarea name="comentario" placeholder="Contanos que servicio te interesa..."></textarea>
                 </p>
 
                 <p className="centrar">
-                    <input type="submit" value="Enviar" />
+                    <button type="submit" className="btn-whatsapp">
+                    Pedir turno por WhatsApp
+                </button>
                 </p>
 
             </form>

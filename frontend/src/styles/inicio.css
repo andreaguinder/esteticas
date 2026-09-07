@@ -1,0 +1,87 @@
+.titulo {
+font-size: 24px;
+text-align: center;
+padding: 48px 0px 24px;
+}
+
+.container-inicio {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container-inicio .container-left,
+.container-inicio .container-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.container-right .texto {
+    order: 1;
+}
+
+.container-right .image {
+    order: 2;
+}
+
+.container-inicio .texto {
+    white-space: pre-line;
+    line-height: 1.6;
+}
+
+.container-inicio .image picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Opcional */
+}
+
+.container-inicio .texto h2 {
+    font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+
+    .titulo {
+font-size: 32px;
+padding: 64px 0px;
+}
+
+    .container-inicio {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 16px 20px;
+        gap: 64px;
+    }
+
+    .container-inicio .container-left,
+    .container-inicio .container-right {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+    }
+
+    /* Ancho 50/50 para texto e imagen */
+    .container-inicio .container-left > *,
+    .container-inicio .container-right > * {
+        flex: 1;
+    }
+
+    /* En desktop reseteamos el order para que respete el orden del HTML */
+    /* container-left:  Texto (izq) | Imagen (der) */
+    /* container-right: Imagen (izq) | Texto (der) */
+    .container-right .texto,
+    .container-right .image {
+        order: unset;
+    }
+
+    .container-inicio .texto {
+    font-size: 18px;
+}
+
+.container-inicio .texto h2 {
+    font-size: 22px;
+}
+}

@@ -35,7 +35,7 @@ padding: 48px 0px 24px;
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px; /* Opcional */
+    border-radius: 8px; 
 }
 
 .container-inicio .texto h2 {

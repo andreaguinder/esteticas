@@ -89,9 +89,22 @@ router.post('/agregar', async (req, res, next) => {
 router.get("/modificar/:id", async (req, res, next) => {
   var id = req.params.id;
   var servicio = await serviciosModel.getServiciosById(id);
+
+  let imagen = '';
+    if (servicio.imagen_id) {
+      imagen = cloudinary.url(servicio.imagen_id, {
+        width: 200,
+        height: 200,
+        crop: 'fill'
+      });
+    }
+
   res.render("admin/modificar", {
     layout: "admin/layout",
-    servicio
+    servicio: {
+        ...servicio,
+        imagen
+      }
   });
 });
 
@@ -102,7 +115,8 @@ router.post('/modificar', async (req, res, next) => {
     var obj = {
       nombre: req.body.nombre,
       duracion: req.body.duracion,
-      descripcion: req.body.descripcion
+      descripcion: req.body.descripcion,
+      imagen_id: req.body.imagen_original,
     }
 
     console.log(obj);

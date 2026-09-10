@@ -21,6 +21,7 @@ export default function Nav () {
             </div>
             <ul>
                 <li><Link className={`nav-link ${isActive("/") ? "activo" : ""}`} href="/">Inicio</Link></li>
+                <li><Link className={`nav-link ${isActive("/nosotros") ? "activo" : ""}`} href="/nosotros">Nosotros</Link></li>
                 <li><Link className={`nav-link ${isActive("/servicios") ? "activo" : ""}`} href="/servicios">Servicios</Link></li>
                 <li><Link className={`nav-link ${isActive("/contacto") ? "activo" : ""}`} href="/contacto">Contacto</Link></li>
             </ul>

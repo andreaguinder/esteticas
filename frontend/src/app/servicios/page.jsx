@@ -1,5 +1,6 @@
 import "@/styles/servicios.css";
 import CardServicio from "@/components/CardServicio";
+import Search from "@/components/Search";
 
 export const metadata = {
     title: "Estética Artemisa | Servicios",
@@ -13,11 +14,9 @@ export default async function  Servicios() {
     return (
         <>
                 <h1 className="titulo">Conocé nuestros servicios</h1>
-                <div className="container-servicios">
-                    {servicios.map((servicio) => (
-                        <CardServicio key={servicio.id} nombre={servicio.nombre} descripcion={servicio.descripcion} duracion={servicio.duracion} imagen={servicio.imagen} />
-                    ))}
-                </div>
+
+<Search servicios={servicios} />
+
 </>
     );
 }

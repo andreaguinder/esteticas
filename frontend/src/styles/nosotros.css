@@ -1,0 +1,49 @@
+.titulo {
+font-size: 24px;
+text-align: center;
+padding: 48px 0px 24px;
+}
+
+.container-inicio {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.container-info {
+    width: 100%;
+    margin: auto;
+}
+
+picture img {
+    width: 100%;
+        border-radius: 8px; 
+        margin: 24px auto 32px;
+}
+
+.container-inicio .texto {
+    white-space: pre-line;
+    line-height: 1.6;
+}
+
+@media screen and (min-width: 768px) {
+
+    .titulo {
+font-size: 32px;
+padding: 64px 0px;
+}
+
+    .container-inicio {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 16px 20px;
+        gap: 64px;
+    }
+
+    picture img {
+    width: 100%;
+        border-radius: 8px; 
+        margin: 24px auto 32px;
+}
+}

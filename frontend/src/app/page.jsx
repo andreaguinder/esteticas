@@ -4,18 +4,18 @@ import "@/styles/inicio.css"
 export default function Home() {
   return (
     <>
-      <h1 className="titulo">Conocé nuestro espacio</h1>
+      <h1 className="titulo">El arte del autocuidado y la estética</h1>
 
       <div className="container-inicio">
 
         <div className="container-left">
           <div className="texto">
-            <h2>Tu espacio de calma, cuidado y transformación personal</h2>
+<h2>Bienestar integral y la importancia de regalarte un momento de pausa</h2>
             <p>
-              En un mundo que avanza a un ritmo acelerado, regalarte un momento de pausa es una necesidad fundamental. Nuestro centro nace con la convicción de que la verdadera belleza florece cuando alineamos el cuidado de tu cuerpo con tu bienestar interior, mediante diagnósticos a medida y una atención profundamente personalizada.
+              En un mundo que avanza a un ritmo acelerado, cuidar de uno mismo se ha transformado en una necesidad fundamental. La estética moderna va mucho más allá de lo superficial: es un espacio de reconexión corporal y mental donde la salud, el descanso y la renovación personal se encuentran para devolverte el equilibrio cotidiano.
             </p>
             <p>
-              Combinamos aparatología de vanguardia y cosmética avanzada para brindarte una experiencia revitalizante. Te invitamos a conectar con una rutina de autocuidado donde vos sos la prioridad y descubrir el equilibrio perfecto entre ciencia, salud y estética.
+              Los tratamientos estéticos profesionales permiten estimular la regeneración natural de la piel, mejorar la circulación, aliviar tensiones y prevenir los signos del estrés. Integrar la estética a tu rutina no es solo verse bien, sino regalarte un momento de pausa consciente donde el cuerpo y la mente se recuperan en armonía.
             </p>
           </div>
           <div className="image">
@@ -40,12 +40,12 @@ export default function Home() {
             </picture>
           </div>
           <div className="texto">
-            <h2>Ciencia, precisión y vanguardia al servicio de tu piel</h2>
+<h2>Ciencia, innovación y resultados visibles para tu piel</h2>
             <p>
-              Nos dedicamos a redefinir el cuidado personal combinando la ciencia dermatológica con tecnología estética de máxima efectividad. Nuestra filosofía se basa en potenciar la salud y la firmeza de tu piel mediante tratamientos no invasivos, seguros y con resultados visibles desde las primeras sesiones.
+              Los avances en dermocosmética y tecnología estética han revolucionado la manera en que cuidamos nuestro cuerpo. A través de procedimientos no invasivos y altamente precisos, es posible potenciar la producción de colágeno, devolver la luminosidad perdida y mantener la firmeza de la piel sin alterar tus expresiones naturales.
             </p>
             <p>
-              Estudiamos las necesidades reales de tu rostro y cuerpo para seleccionar la aparatología y los protocolos idóneos para vos. Descubrí el impacto de una estética inteligente, pensada para elevar tu rutina diaria en un entorno de máxima elegancia y confort.
+              Combinar el conocimiento dermatológico con protocolos a medida garantiza resultados duraderos y seguros. Apoyarse en la ciencia estética inteligente permite tratar las necesidades reales de cada etapa de la vida, promoviendo una belleza saludable, fresca y en total sintonía con tu vitalidad.
             </p>
           </div>
         </div>

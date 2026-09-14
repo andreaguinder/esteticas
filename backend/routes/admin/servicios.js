@@ -108,28 +108,62 @@ router.get("/modificar/:id", async (req, res, next) => {
   });
 });
 
-/* para modificar el servicio */
 router.post('/modificar', async (req, res, next) => {
   try {
+    let imagen_id = req.body.img_original;
+    let borrar_imagen_vieja = false;
 
+    // chequeo si el usuario quiere borrar la imagen
+    if (req.body.img_delete === "1") {
+      imagen_id = null;
+      borrar_imagen_vieja = true;
+    }
+
+    // chequeo si el usuario subió una imagen nueva
+    if (req.files && Object.keys(req.files).length > 0) {
+      let imagen = req.files.imagen;
+      let result = await cloudinary.uploader.upload(imagen.tempFilePath);
+      imagen_id = result.public_id;
+      borrar_imagen_vieja = true;
+    }
+
+    // armo el objeto a modificar
     var obj = {
       nombre: req.body.nombre,
       duracion: req.body.duracion,
       descripcion: req.body.descripcion,
-      imagen_id: req.body.imagen_original,
-    }
-
-    console.log(obj);
+      imagen_id: imagen_id
+    };
 
     await serviciosModel.modificarServicioById(obj, req.body.id);
     res.redirect('/admin/servicios');
 
   } catch (error) {
     console.log(error);
+    
+    // si falla se carga con la imagen original
+    let imagen = '';
+    if (req.body.img_original) {
+      imagen = cloudinary.url(req.body.img_original, {
+        width: 200,
+        height: 200,
+        crop: 'fill'
+      });
+    }
+
+    // vuelvo a renderizar
     res.render('admin/modificar', {
       layout: 'admin/layout',
       error: true,
-      message: 'No se pudo modificar el servicio'
+      message: 'No se pudo modificar el servicio',
+      servicio: {
+        id: req.body.id,
+        nombre: req.body.nombre,
+        duracion: req.body.duracion,
+        descripcion: req.body.descripcion,
+        imagen_id: req.body.img_original,
+        imagen: imagen
+      }
     });
   }
 });

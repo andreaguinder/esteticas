@@ -88,10 +88,10 @@
   margin-top: 8px;
 }
 
-.btn-whatsapp {
+.btn-form-contacto {
   width: 100%;
   padding: 14px;
-  background-color: #25d366;
+  background-color: #008b91;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -106,8 +106,8 @@
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.btn-whatsapp:hover {
-  background-color: #20ba5a;
+.btn-form-contacto:hover {
+  background-color: #00c4cc;
   transform: translateY(-1px);
 }
 

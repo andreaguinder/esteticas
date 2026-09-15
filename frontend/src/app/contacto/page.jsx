@@ -14,7 +14,7 @@ export default function Contacto() {
 
         <section className="contacto-section contacto-form-section">
           <h2 className="contacto-title">Envianos tu consulta</h2>
-          <ContactForm />
+          <ContactForm postUrl={`${process.env.API_BASE_URL}/api/contacto`} />
         </section>
 
         <section className="contacto-section contacto-info-section">

@@ -1,60 +1,107 @@
-"use client";
+'use client';
 
-export default function ContactForm() {
+import { useState } from 'react';
 
-    const handleEnviarForm = (e) => {
+export default function ContactForm({ postUrl }) {
+    const initialForm = {
+        nombre: '',
+        email: '',
+        telefono: '',
+        mensaje: ''
+    };
+
+    const [sending, setSending] = useState(false);
+    const [msg, setMsg] = useState('');
+    const [formData, setFormData] = useState(initialForm);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((oldData) => ({
+            ...oldData,
+            [name]: value // forma dinámica
+        }));
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setMsg('');
+        setSending(true);
 
-        const formData = new FormData(e.target);
-        const nombre = formData.get("nombre");
-        const email = formData.get("email");
-        const telefono = formData.get("telefono");
-        const comentario = formData.get("comentario");
-        const numeroWhatsApp = "5492284228173"; 
+        const rawResponse = await fetch(postUrl, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
 
+        const response = await rawResponse.json();
+        console.log(response);
 
-        const mensaje = `Hola! Quiero pedir un turno.%0A%0A*Nombre:* ${nombre}%0A*Email:* ${email}%0A*Teléfono:* ${telefono}%0A*Comentario:* ${comentario}`;
+        setSending(false);
+        setMsg(response.message);
 
-
-        window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, "_blank");
-
-        e.target.reset();
+        if (response.error === false) {
+            setFormData(initialForm);
+        }
     };
 
     return (
 
         <>
-
-            <form action="/contacto" method="post" className="formulario" onSubmit={handleEnviarForm}>
+            <form action="/contacto" method="post" onSubmit={handleSubmit} className="formulario">
 
                 <p>
                     <label>Nombre</label>
-                    <input type="text" name="nombre" />
+                    <input 
+                        type="text" 
+                        name="nombre" 
+                        value={formData.nombre} 
+                        onChange={handleChange} 
+                    />
                 </p>
 
                 <p>
                     <label>Email</label>
-                    <input type="text" name="email" />
+                    <input 
+                        type="text" 
+                        name="email" 
+                        value={formData.email} 
+                        onChange={handleChange} 
+                    />
                 </p>
 
                 <p>
                     <label>Teléfono</label>
-                    <input type="text" name="telefono" />
+                    <input 
+                        type="text" 
+                        name="telefono" 
+                        value={formData.telefono} 
+                        onChange={handleChange} 
+                    />
                 </p>
 
                 <p>
-                    <label>Comentario</label>
-                    <textarea name="comentario" placeholder="Contanos que servicio te interesa..."></textarea>
+                    <label>Mensaje</label>
+                    <textarea 
+                        name="mensaje" 
+                        value={formData.mensaje} 
+                        onChange={handleChange}
+                        placeholder="Contanos qué servicio te interesa..."
+                    />
                 </p>
 
                 <p className="centrar">
-                    <button type="submit" className="btn-whatsapp">
-                    Pedir turno por WhatsApp
-                </button>
+                    <button type="submit" disabled={sending} className="btn-form-contacto">
+        {sending ? 'Enviando...' : 'Enviar'}
+    </button>
                 </p>
 
             </form>
 
+            {sending ? <p>Enviando...</p> : null}
+            {msg ? <p>{msg}</p> : null}
         </>
 
     )

@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function  Servicios() {
 
-    const data = await fetch(`${process.env.API_BASE_URL}/api/servicios`, { cache: 'no-store' });
+    const data = await fetch(`${process.env.API_BASE_URL}/api`, { cache: 'no-store' });
     const servicios = await data.json();
     return (
         <>
